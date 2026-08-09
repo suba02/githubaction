@@ -56,4 +56,15 @@
 		</plugins>
 	</build>
 
+<distributionManagement>
+  <repository>
+    <id>artifactory</id>
+    <url>https://suba02.jfrog.io/artifactory/libs-release-local</url>
+  </repository>
+  <snapshotRepository>
+    <id>artifactory</id>
+    <url>https://suba02.jfrog.io/artifactory/libs-snapshot-local</url>
+  </snapshotRepository>
+</distributionManagement>
+
 </project>
