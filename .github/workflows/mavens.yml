@@ -53,8 +53,8 @@ jobs:
         </settings>
         EOF
       env:
-        ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
-        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+        ARTIFACTORY_USER: ${{ env.ARTIFACTORY_USER }}
+        ARTIFACTORY_PASSWORD: ${{ env.ARTIFACTORY_PASSWORD }}
 
     - name: Deploy to Artifactory
       run: mvn deploy -DskipTests
