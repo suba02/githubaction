@@ -1,7 +1,7 @@
 # app.py
 # This is a test commit
 #Please get all thing
-#update
+#updates
 def add(a, b):
     return a + b
 
