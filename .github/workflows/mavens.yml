@@ -38,3 +38,23 @@ jobs:
       with:
         name: Package
         path: staging
+    - name: Create Maven settings.xml
+      run: |
+        mkdir -p ~/.m2
+        cat > ~/.m2/settings.xml <<EOF
+        <settings>
+          <servers>
+            <server>
+              <id>artifactory</id>
+              <username>${ARTIFACTORY_USER}</username>
+              <password>${ARTIFACTORY_PASSWORD}</password>
+            </server>
+          </servers>
+        </settings>
+        EOF
+      env:
+        ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
+        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+
+    - name: Deploy to Artifactory
+      run: mvn deploy -DskipTests
